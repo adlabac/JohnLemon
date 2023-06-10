@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 movement;      // Vektor pravca kretanja
     private Rigidbody rb;          // Rigidbody komponenta
     private Animator animator;     // Animator komponenta
+    private AudioSource audioSource;
 
     private Quaternion rotation = Quaternion.identity;  // Rotacija glavnog lika
 
@@ -19,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
         //  Inicijalizacija polja rb i animator
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -38,6 +40,18 @@ public class PlayerMovement : MonoBehaviour
 
         // Postavljanje parametra animacije u zavisnosti od toga da li lik hoda, ili ne
         animator.SetBool("IsWalking", isWalking);
+
+        if (isWalking)
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+        }
+        else
+        {
+            audioSource.Stop();
+        }
 
         // Izračunavanje ugla u koji treba okrenuti lika imajući u obzir: trenutni pravac, želejeni pravac i maksimalno dozvoljeni ugao zaokretanja
         Vector3 desiredForward =
