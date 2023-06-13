@@ -6,10 +6,10 @@ public class PlayerMovement : MonoBehaviour
 {
     public float turnSpeed = 20f;  // Brzina okretanja pri promjeni pravca. Polje turnSpeed je public, pa se može vidjeti i podešavati u Inspectoru.
 
-    private Vector3 movement;      // Vektor pravca kretanja
-    private Rigidbody rb;          // Rigidbody komponenta
-    private Animator animator;     // Animator komponenta
-    private AudioSource audioSource;
+    private Vector3 movement;         // Vektor pravca kretanja
+    private Rigidbody rb;             // Rigidbody komponenta
+    private Animator animator;        // Animator komponenta
+    private AudioSource audioSource;  // AudioSource komponenta
 
     private Quaternion rotation = Quaternion.identity;  // Rotacija glavnog lika
 
@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     // Kod koji se izrvršava na početku
     void Start()
     {
-        //  Inicijalizacija polja rb i animator
+        //  Inicijalizacija polja rb, animator i audioSource
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
@@ -43,14 +43,15 @@ public class PlayerMovement : MonoBehaviour
 
         if (isWalking)
         {
+            // John hoda i zvuk koraka se još uvijek ne reprodukuje?
             if (!audioSource.isPlaying)
             {
-                audioSource.Play();
+                audioSource.Play();  // Počni reprodukciju zvuka koraka
             }
         }
         else
         {
-            audioSource.Stop();
+            audioSource.Stop();  // Zaustavi reprodukciju zvuka koraka
         }
 
         // Izračunavanje ugla u koji treba okrenuti lika imajući u obzir: trenutni pravac, želejeni pravac i maksimalno dozvoljeni ugao zaokretanja
