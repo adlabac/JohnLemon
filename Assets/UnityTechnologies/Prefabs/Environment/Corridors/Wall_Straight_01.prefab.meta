@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: f0813250bbbbb424388bcfd29b014cb7
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 143848
+  packageName: 'Unity Learn | 3D Beginner: Tutorial Resources | URP'
+  packageVersion: 3.1
+  assetPath: Assets/UnityTechnologies/Prefabs/Environment/Corridors/Wall_Straight_01.prefab
+  uploadId: 691540

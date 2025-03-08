@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 7d9dddbfcd0c9c0468dfbc7d25bd2d79
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 143848
+  packageName: 'Unity Learn | 3D Beginner: Tutorial Resources | URP'
+  packageVersion: 3.1
+  assetPath: Assets/UnityTechnologies/Prefabs/VFX/Flickering_Light.prefab
+  uploadId: 691540

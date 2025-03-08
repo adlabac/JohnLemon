@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 147dac9aa1b5dd149a5ad652019e5ac8
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 143848
+  packageName: 'Unity Learn | 3D Beginner: Tutorial Resources | URP'
+  packageVersion: 3.1
+  assetPath: Assets/UnityTechnologies/Materials/DiningRoom/Table.mat
+  uploadId: 691540

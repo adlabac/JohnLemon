@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: eabc9546105bf4accac1fd62a63e88e6
+timeCreated: 1487337779
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 143848
+  packageName: 'Unity Learn | 3D Beginner: Tutorial Resources | URP'
+  packageVersion: 3.1
+  assetPath: Assets/TutorialInfo/Layout.wlt
+  uploadId: 691540

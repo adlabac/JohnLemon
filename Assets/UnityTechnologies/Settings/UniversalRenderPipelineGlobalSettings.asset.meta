@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: cb6b94e2cdcd28147bae9769b2f70762
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 143848
+  packageName: 'Unity Learn | 3D Beginner: Tutorial Resources | URP'
+  packageVersion: 3.1
+  assetPath: Assets/UnityTechnologies/Settings/UniversalRenderPipelineGlobalSettings.asset
+  uploadId: 691540
