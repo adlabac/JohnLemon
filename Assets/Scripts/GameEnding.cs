@@ -12,10 +12,14 @@ public class GameEnding : MonoBehaviour
     public float fadeDuration = 1f;  // Trajanje fade efekta u sekundama
     public float displayImageDuration = 1f;  // Vrijeme prikazivanja završne slike, nakon završetka fade efekta
 
+    public AudioSource exitAudio;
+    public AudioSource caughtAudio;
+
     bool playerAtExit = false;  // Flag koji govori da li je igrač stigao do kraja nivoa
     bool playerCaught = false;  // Flag koji govori da li je igrač uhvaćen
 
     float timer = 0f;  // Tajmer za fade i kraj/restart nivoa
+    bool audioPlayed = false;
 
     public void CaughtPlayer()  // Javna metoda koja omogućava da se igrač proglasi uhvaćenim
     {
@@ -26,11 +30,11 @@ public class GameEnding : MonoBehaviour
     {
         if (playerAtExit)
         {
-            EndLevel(exitImage, false);  // Ako je igrač stigao do kraja nivoa prikaži odgovarajuću sliku i završi igru
+            EndLevel(exitImage, exitAudio, false);  // Ako je igrač stigao do kraja nivoa prikaži odgovarajuću sliku i završi igru
         }
         else if (playerCaught)
         {
-            EndLevel(caughtImage, true);  // Ako je igrač uhvaćen prikaži odgovarajuću sliku i restartuj nivo
+            EndLevel(caughtImage, caughtAudio, true);  // Ako je igrač uhvaćen prikaži odgovarajuću sliku i restartuj nivo
         }
     }
 
@@ -41,8 +45,14 @@ public class GameEnding : MonoBehaviour
         }
     }
 
-    void EndLevel(CanvasGroup image, bool restart)
+    void EndLevel(CanvasGroup image, AudioSource audio, bool restart)
     {
+        if (!audioPlayed)
+        {
+            audio.Play();
+            audioPlayed = true;
+        }
+
         timer += Time.deltaTime;  // Uvećaj tajmer za vrijeme proteklo od prethodnog frejma
         image.alpha = timer / fadeDuration;  // Podesi providnost završne slike u skladu sa tajmerom
 
