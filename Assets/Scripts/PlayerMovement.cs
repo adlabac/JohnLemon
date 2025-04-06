@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     {
         anim = GetComponent<Animator>();  // Preuzimanje Animator komponente
         rb = GetComponent<Rigidbody>();   // Preuzimanje RigidBody komponente
-        audioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();  // Preuzimanje AudioSource komponente
     }
 
     void FixedUpdate()  // Obrada jednog "otkucaja" petlje zadužene za obradu fizike
@@ -30,16 +30,16 @@ public class PlayerMovement : MonoBehaviour
         bool isWalking = hasHorizontalInput || hasVerticalInput;  // Da li se lik kreće u pravcu bilo koje ose?
         anim.SetBool("isWalking", isWalking);  // Podesi parametar animacije, tako da odgovara tome da li se lik kreće ili stoji
 
-        if (isWalking)
+        if (isWalking)  // Da li John hoda?
         {
-            if (!audioSource.isPlaying)
+            if (!audioSource.isPlaying)  // Da li se zvuk koraka već reprodukuje?
             {
-                audioSource.Play();
+                audioSource.Play();  // Reprodukuij zvuk
             }
         }
         else
         {
-            audioSource.Stop();
+            audioSource.Stop();  // Prekini reprodukciju
         }
 
         Vector3 desiredForward = Vector3.RotateTowards(transform.forward, movement, turnSpeed * Time.deltaTime, 0f);  // Odredi željeni pravac u kom treba okrenuti lika, u zavisnosti od proteklog vremena, ali ne brže od zadatog parametra
