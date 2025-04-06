@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 
     Animator anim;  // Referenca na Animator komponentu Johnovog objekta
     Rigidbody rb;  // Referenca na Rigidbody komponentu Johnovog objekta
+    AudioSource audioSource;
     Vector3 movement;  // Vektor smjera u kom lik treba da se kreće
     Quaternion rotation = Quaternion.identity;  // Trenutni ugao rotacije lika, koji se polako približava vektoru "movement"
 
@@ -13,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     {
         anim = GetComponent<Animator>();  // Preuzimanje Animator komponente
         rb = GetComponent<Rigidbody>();   // Preuzimanje RigidBody komponente
+        audioSource = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()  // Obrada jednog "otkucaja" petlje zadužene za obradu fizike
@@ -27,6 +29,18 @@ public class PlayerMovement : MonoBehaviour
         bool hasVerticalInput = !Mathf.Approximately(vertical, 0f);  // Da li se lik kreće u pravcu vertikalne ose?
         bool isWalking = hasHorizontalInput || hasVerticalInput;  // Da li se lik kreće u pravcu bilo koje ose?
         anim.SetBool("isWalking", isWalking);  // Podesi parametar animacije, tako da odgovara tome da li se lik kreće ili stoji
+
+        if (isWalking)
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+        }
+        else
+        {
+            audioSource.Stop();
+        }
 
         Vector3 desiredForward = Vector3.RotateTowards(transform.forward, movement, turnSpeed * Time.deltaTime, 0f);  // Odredi željeni pravac u kom treba okrenuti lika, u zavisnosti od proteklog vremena, ali ne brže od zadatog parametra
         rotation = Quaternion.LookRotation(desiredForward);  // Odredi ugao rotacije na osnovu izračunatog pravca
